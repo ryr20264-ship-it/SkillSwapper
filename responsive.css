@@ -28,6 +28,62 @@
    2. Medium Laptops & Tablets (992px and below)
    -------------------------------------------------------------------------- */
 @media (max-width: 991px) {
+    /* Mobile Navbar & Navigation Drawer */
+    .navbar-custom {
+        padding: 12px 0 !important;
+        background: rgba(9, 9, 11, 0.92) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        border-bottom: 1px solid var(--glass-border) !important;
+    }
+
+    .navbar-custom .navbar-collapse {
+        background: rgba(13, 13, 18, 0.98) !important;
+        backdrop-filter: blur(24px) !important;
+        -webkit-backdrop-filter: blur(24px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 20px !important;
+        padding: 22px 18px !important;
+        margin-top: 14px !important;
+        margin-bottom: 10px !important;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 35px rgba(108, 99, 255, 0.25) !important;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+    }
+
+    .navbar-custom .navbar-nav {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+        text-align: center !important;
+        margin-bottom: 0 !important;
+    }
+
+    .navbar-custom .nav-link {
+        padding: 12px 20px !important;
+        font-size: 1.05rem !important;
+        font-weight: 600 !important;
+        color: #a1a1aa !important;
+        border-radius: 14px !important;
+        transition: all 0.25s ease !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: 1px solid transparent !important;
+    }
+
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .nav-link.active {
+        color: #ffffff !important;
+        background: rgba(108, 99, 255, 0.18) !important;
+        border-color: rgba(108, 99, 255, 0.35) !important;
+        box-shadow: 0 4px 15px rgba(108, 99, 255, 0.2) !important;
+    }
+
+    .navbar-custom .nav-link::after {
+        display: none !important;
+    }
+
     #hero {
         padding-top: 110px;
         padding-bottom: 50px;
@@ -125,6 +181,15 @@
    3. Small Tablets & Mobiles (767px and below) - Compact Spacing & Left Footer
    -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
+
+    .navbar-brand-logo img {
+        width: 46px !important;
+        height: 46px !important;
+    }
+
+    .navbar-brand-logo span {
+        font-size: 1.25rem !important;
+    }
 
     /* Compact Section Padding & Gaps */
     #hero {

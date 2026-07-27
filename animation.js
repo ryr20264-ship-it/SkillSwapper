@@ -271,14 +271,29 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // Close mobile menu on link click
+    // Close mobile menu on link click, outside click, or Escape key
     const collapseEl = document.querySelector('.navbar-collapse');
     const toggler    = document.querySelector('.navbar-toggler-custom');
-    navLinks.forEach(a => {
-        a.addEventListener('click', () => {
-            if (collapseEl && collapseEl.classList.contains('show') && toggler) toggler.click();
+    
+    if (collapseEl && toggler) {
+        navLinks.forEach(a => {
+            a.addEventListener('click', () => {
+                if (collapseEl.classList.contains('show')) toggler.click();
+            });
         });
-    });
+
+        document.addEventListener('click', (e) => {
+            if (collapseEl.classList.contains('show') && navbar && !navbar.contains(e.target)) {
+                toggler.click();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && collapseEl.classList.contains('show')) {
+                toggler.click();
+            }
+        });
+    }
 
     /* ======================================================================
        10. Back-to-Top Button
