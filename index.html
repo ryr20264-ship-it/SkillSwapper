@@ -67,8 +67,8 @@
     <!-- Toast Notifications Container -->
     <div class="toast-container-custom" aria-live="polite" aria-atomic="true"></div>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" aria-label="Scroll to top">
+    <!-- Back to Top Button (shown below chatbot FAB on scroll) -->
+    <button class="back-to-top" id="back-to-top-btn" aria-label="Scroll to top" style="display:none;">
         <i class="bi bi-arrow-up"></i>
     </button>
 
@@ -720,65 +720,322 @@
             <div class="row g-4 justify-content-center">
 
                 <!-- Founder 1 -->
-                <div class="col-lg-5 col-md-6">
-                    <div class="founder-card">
-                        <div class="founder-avatar">
-                            RG
-                        </div>
-                        <span class="role founder-role">
-                            Founder & Developer
-                        </span>
-                        <h3>
-                            Ruthveek Gourishetty
-                        </h3>
-                        <p>
-                            SkillSwapper started with Ruthveek's vision of creating a platform where knowledge could be
-                            shared freely through collaboration. As the Founder, he leads the product strategy, frontend
-                            development, platform architecture, and technical innovation. His focus is on building a
-                            seamless, scalable, and user-friendly platform that empowers people to learn from one
-                            another and create meaningful connections through skill exchange.
-                        </p>
-                        <div class="founder-skills">
-                            <span>Frontend Developer</span>
-                            <span>React Developer</span>
-                            <span>Community</span>
+               <div class="col-lg-5 col-md-6">
+    <div class="founder-card">
+        <div class="founder-avatar">
+            RG
+        </div>
 
-                        </div>
-                    </div>
-                </div>
+        <span class="role founder-role">
+            Founder &amp; Frontend Developer
+        </span>
+
+        <h3>
+            Ruthveek Gourishetty
+        </h3>
+
+        <p>
+            SkillSwapper was founded by Ruthveek Gourishetty with the vision of creating a platform where people can learn, teach, and grow together through skill exchange. As the Founder and Frontend Developer, he leads product strategy, user experience, frontend architecture, and platform development. His focus is on building modern, scalable, and intuitive web applications that deliver exceptional user experiences while fostering collaboration and lifelong learning within the community.
+        </p>
+
+        <div class="team-social-links mt-4">
+            <a href="https://www.linkedin.com/in/ruthveek-gourishetty-435154264"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon-btn"
+                aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a href="mailto:ruthveekgourishetty@gmail.com"
+                class="social-icon-btn"
+                aria-label="Email">
+                <i class="bi bi-envelope-fill"></i>
+            </a>
+        </div>
+    </div>
+</div>
 
                 <!-- Founder 2 (Co-Founder) -->
-                <div class="col-lg-5 col-md-6">
-                    <div class="founder-card">
-                        <div class="founder-avatar">
-                            YS
-                        </div>
-                        <span class="role cofounder-role">
-                            Co-Founder & Creative Director
-                        </span>
-                        <h3>
-                            Yasaswini
-                        </h3>
-                        <p>
-                            Yasaswini plays a key role in shaping the identity and experience of SkillSwapper. As the
-                            Co-Founder, she leads the creative vision, user experience, visual design, branding, and
-                            community engagement. Her goal is to ensure every interaction on the platform feels
-                            intuitive, inspiring, and welcoming, helping users connect, learn, and grow together.
-                        </p>
-                        <div class="founder-skills">
-                            <span>UI/UX</span>
-                            <span>Research</span>
-                            <span>Frontend Developer</span>
+              <div class="col-lg-5 col-md-6">
+    <div class="founder-card">
+        <div class="founder-avatar">
+            YS
+        </div>
 
-                        </div>
-                    </div>
-                </div>
+        <span class="role cofounder-role">
+            Co-Founder &amp; Creative Director
+        </span>
 
+        <h3>
+           Yasasswini Vudaga 
+        </h3>
+
+        <p>
+            As the Co-Founder and Creative Director of SkillSwapper, Yasaswini leads the platform's creative vision, user experience, branding, and design strategy. She is dedicated to crafting intuitive and engaging digital experiences that make learning, teaching, and collaboration seamless. Her focus on thoughtful design and user-centered innovation helps shape SkillSwapper into a welcoming platform for learners and creators alike.
+        </p>
+
+        <div class="team-social-links mt-4">
+            <a href="https://www.linkedin.com/in/yasasswini-vudaga-620212224/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon-btn"
+                aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a href="mailto:yasasswini2018@gmail.com"
+                class="social-icon-btn"
+                aria-label="Email">
+                <i class="bi bi-envelope-fill"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+            </div>
+
+            <!-- Action Button to Full Team Page Data-->
+            <div class="text-center mt-5">
+                <button id="open-our-team-btn" class="btn-our-team">
+                    <span>Our Team</span>
+                    <i class="bi bi-arrow-right-circle-fill"></i>
+                </button>
             </div>
 
         </div>
 
     </section>
+
+    <!-- ==========================================================================
+       6.5. Our Team Full-Page View Overlay
+       ========================================================================== -->
+    <div id="our-team-page" class="our-team-fullpage" aria-hidden="true">
+        <!-- Top Navigation Bar -->
+        <nav class="team-page-navbar">
+            <div class="container d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-3">
+                    <img src="logo (2).png" alt="SkillSwapper Logo" style="width: 44px; height: 44px; border-radius: 50%;">
+                    <div>
+                        <h4 class="team-navbar-brand mb-0">Skill<span class="purple-text">Swapper</span></h4>
+                        <span class="team-navbar-subtitle">Meet Our Extended Team</span>
+                    </div>
+                </div>
+                <button id="close-our-team-btn" class="btn-back-home" aria-label="Back to main page">
+                    <i class="bi bi-arrow-left"></i>
+                    <span>Back to Main Page</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content Scroll Area -->
+        <div class="team-page-content">
+            <div class="container py-5">
+
+                <!-- Page Header Banner -->
+                <div class="text-center mb-4 reveal reveal-slide-up">
+                    <span class="founders-badge mb-3 d-inline-block">SKILLSWAPPER TALENT</span>
+                    <h1 class="team-page-title">The Engineering &amp; Creative Force</h1>
+                    <p class="founders-subtitle mx-auto" style="max-width: 680px;">
+                        Meet the specialized talent powering our backend microservices, high-performance architecture, and social media community growth.
+                    </p>
+                </div>
+
+                <!-- Category Filter Tab Scrollbar -->
+                <div class="team-filter-bar-wrapper mb-5 text-center reveal reveal-slide-up">
+                    <div class="team-filter-bar">
+                        <button class="team-filter-btn active" data-filter="all">
+                            <i class="bi bi-grid-fill me-2"></i>All Team
+                            <span class="filter-count">3</span>
+                        </button>
+                        <button class="team-filter-btn" data-filter="backend">
+                            <i class="bi bi-server me-2"></i>Backend Team
+                            <span class="filter-count">2</span>
+                        </button>
+                        <button class="team-filter-btn" data-filter="social">
+                            <i class="bi bi-megaphone-fill me-2"></i>Social Media
+                            <span class="filter-count">1</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SECTION 1: BACKEND TEAM (2 Cards) -->
+               <div class="team-category-block mb-5" data-category="backend">
+    <div class="category-header text-center mb-4 reveal reveal-slide-up">
+        <span class="role project-role px-3 py-2 fs-6">
+            <i class="bi bi-server me-2"></i>Backend Development &amp; Infrastructure
+        </span>
+        <h3 class="category-title mt-3">Backend Engineering</h3>
+        <div class="category-divider"></div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- Backend Card 1 -->
+        <div class="col-lg-5 col-md-6">
+            <div class="team-member-card">
+                <div class="team-avatar avatar-backend-1">
+                    <i class="bi bi-terminal-fill"></i>
+                </div>
+
+                <span class="role founder-role">
+                    Senior Backend Engineer
+                </span>
+
+                <h3>Arun Kumar Aluvaka</h3>
+
+                <p>
+                    Experienced Backend Engineer specializing in Python and FastAPI for building scalable,
+                    secure, and high-performance web applications. Skilled in RESTful API development,
+                    database design, authentication systems, and backend architecture with a strong focus
+                    on performance, reliability, and maintainable code.
+                </p>
+
+                <!-- <div class="founder-skills">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>REST API</span>
+                    <span>MySQL</span>
+                    <span>PostgreSQL</span>
+                  
+                    <span>Git</span>
+                    <span>Postman</span>
+                </div> -->
+
+                <div class="team-social-links mt-4">
+                    <a href="https://www.linkedin.com/in/arunkumar-aluvaka-8b952b221?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+                        aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arunkumar94941@gmail.com"
+                        target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+                        aria-label="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backend Card 2 -->
+        <div class="col-lg-5 col-md-6">
+            <div class="team-member-card">
+                <div class="team-avatar avatar-backend-2">
+                    <i class="bi bi-cloud-arrow-up-fill"></i>
+                </div>
+
+                <span class="role founder-role">
+                    Backend Developer
+                </span>
+
+                <h3>Satwik Reddy</h3>
+
+                <p>
+                    Backend Developer with expertise in Python, FastAPI, and relational databases.
+                    Passionate about developing secure APIs, optimizing SQL queries, implementing
+                    authentication, and building efficient backend services that deliver reliable
+                    and scalable application performance.
+                </p>
+
+                <!-- <div class="founder-skills">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                
+                    <span>MySQL</span>
+                   
+                    <span>Git</span>
+                    
+                </div> -->
+
+                <div class="team-social-links mt-4">
+                    <a href="https://www.linkedin.com/in/satwik-reddy-b24a0b253"
+                        target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+                        aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=satwikr924@gmail.com"
+                        target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+                        aria-label="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+                <!-- SECTION 2: SOCIAL MEDIA TEAM (1 Card) -->
+                <div class="team-category-block" data-category="social">
+    <div class="category-header text-center mb-4 reveal reveal-slide-up">
+        <span class="role cofounder-role px-3 py-2 fs-6">
+            <i class="bi bi-megaphone-fill me-2"></i>Social Media &amp; Growth
+        </span>
+      <h3 class="category-title mt-3">Social Media Management</h3>
+        <div class="category-divider"></div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <!-- Social Media Card -->
+        <div class="col-lg-6 col-md-8">
+            <div class="team-member-card highlight-card">
+                <div class="team-avatar avatar-social">
+                    <i class="bi bi-instagram"></i>
+                </div>
+
+                <span class="role cofounder-role">
+                    Social Media &amp; Community Manager
+                </span>
+
+                <h3>Sree Haarini A/P Renganathan</h3>
+
+                <p>
+                    Passionate about building meaningful online communities and strengthening brand
+                    presence through creative content and digital engagement. Focused on content
+                    planning, social media management, audience interaction, and brand storytelling
+                    to help SkillSwapper reach and inspire learners across multiple platforms.
+                </p>
+
+                <!-- <div class="founder-skills">
+                    <span>Social Media Management</span>
+                   
+                </div> -->
+
+                <div class="team-social-links mt-4">
+                    <a href="https://www.instagram.com/skill_swapper_?igsh=MW5xb3FrdWU4YWNtOA=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon-btn"
+                        aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="https://youtube.com/@skillswapper?si=Th34J0JTxNb7m8c7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon-btn"
+                        aria-label="YouTube">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                  
+
+                    <a href="mailto:sreehaariniworkin@gmail.com"
+                        class="social-icon-btn"
+                        aria-label="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
 
     <!-- ==========================================================================
        7. FAQ Section (Accordion)
@@ -1394,12 +1651,20 @@
     <!-- ================================================================
          AI CHATBOT WIDGET
          ================================================================ -->
-    <!-- Chatbot Toggle Fab -->
-    <button class="chatbot-fab" id="chatbot-toggle" aria-label="Open SkillSwapper AI assistant">
-        <span class="chatbot-fab-icon open-icon"><i class="bi bi-chat-dots-fill"></i></span>
-        <span class="chatbot-fab-icon close-icon" style="display:none;"><i class="bi bi-x-lg"></i></span>
-        <span class="chatbot-fab-badge">AI</span>
-    </button>
+    <!-- Floating Action Stack: Back-to-Top above Chatbot FAB -->
+    <div class="fab-stack">
+        <!-- Back to Top (hidden until scroll) -->
+        <button class="fab-back-top" id="fab-back-top" aria-label="Scroll to top">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+
+        <!-- Chatbot Toggle FAB -->
+        <button class="chatbot-fab" id="chatbot-toggle" aria-label="Open SkillSwapper AI assistant">
+            <span class="chatbot-fab-icon open-icon"><i class="bi bi-robot"></i></span>
+            <span class="chatbot-fab-icon close-icon" style="display:none;"><i class="bi bi-x-lg"></i></span>
+            <span class="chatbot-fab-badge">AI</span>
+        </button>
+    </div>
 
     <!-- Chatbot Window -->
     <div class="chatbot-window" id="chatbot-window" aria-hidden="true">
@@ -1529,8 +1794,9 @@
                 patterns: ['launch', 'when', 'release', 'available', 'live', 'coming soon'],
                 reply: `SkillSwapper is <strong>launching soon!</strong> 🚀<br><br>
 Stay tuned for the official launch.<br><br>
-For updates, contact us at
-<a href="mailto:ruthveekgourishetty@gmail.com" style="color:#a78bfa;">ruthveekgourishetty@gmail.com</a>`
+For updates, contact us at:<br>
+📧 <a href="mailto:ruthveekgourishetty@gmail.com" style="color:#a78bfa;">ruthveekgourishetty@gmail.com</a><br>
+📧 <a href="mailto:yasasswini2018@gmail.com" style="color:#a78bfa;">yasasswini2018@gmail.com</a>`
             },
            {
     patterns: ['contact', 'founder', 'email', 'reach', 'connect', 'ruthveek', 'team', 'who built'],

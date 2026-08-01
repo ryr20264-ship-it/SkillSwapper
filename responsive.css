@@ -28,6 +28,7 @@
    2. Medium Laptops & Tablets (992px and below)
    -------------------------------------------------------------------------- */
 @media (max-width: 991px) {
+
     /* Mobile Navbar & Navigation Drawer */
     .navbar-custom {
         padding: 12px 0 !important;
@@ -560,5 +561,31 @@
     .hiw-card-text {
         font-size: 0.73rem !important;
         line-height: 1.4 !important;
+    }
+}
+
+/* Responsive adjustments for Our Team Page Overlay */
+@media (max-width: 768px) {
+    .team-page-title {
+        font-size: 2.1rem;
+    }
+    .team-navbar-subtitle {
+        display: none;
+    }
+    .btn-back-home span {
+        display: none;
+    }
+    .btn-back-home {
+        padding: 8px 14px;
+    }
+    .btn-our-team {
+        padding: 14px 28px;
+        font-size: 0.95rem;
+    }
+    .team-member-card {
+        padding: 28px 20px;
+    }
+    .category-title {
+        font-size: 1.4rem;
     }
 }

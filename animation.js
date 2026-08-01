@@ -5,7 +5,14 @@
                 staggered entrances, counter animation, and rich interactions.
    ========================================================================== */
 
+// Always start from the top on page load / refresh
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', () => {
+
 
     /* ======================================================================
        0. Custom Cursor Glow (desktop only)
@@ -296,15 +303,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ======================================================================
-       10. Back-to-Top Button
+       10. Back-to-Top Button (fab-back-top — shows only when scrolled)
        ====================================================================== */
-    const bttBtn = document.querySelector('.back-to-top');
-    if (bttBtn) {
+    const fabBackTop = document.getElementById('fab-back-top');
+    if (fabBackTop) {
         window.addEventListener('scroll', () => {
-            bttBtn.classList.toggle('visible', window.scrollY > 400);
+            fabBackTop.classList.toggle('visible', window.scrollY > 400);
         }, { passive: true });
 
-        bttBtn.addEventListener('click', () => {
+        fabBackTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
@@ -451,5 +458,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.3 });
     sectionTitles.forEach(t => titleObs.observe(t));
+
+    /* ======================================================================
+       17. Our Team Full-Page View Modal Handlers
+       ====================================================================== */
+    const openTeamBtn = document.getElementById('open-our-team-btn');
+    const closeTeamBtn = document.getElementById('close-our-team-btn');
+    const teamPageModal = document.getElementById('our-team-page');
+
+    if (openTeamBtn && teamPageModal) {
+        openTeamBtn.addEventListener('click', () => {
+            teamPageModal.classList.add('active');
+            teamPageModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    if (closeTeamBtn && teamPageModal) {
+        closeTeamBtn.addEventListener('click', () => {
+            teamPageModal.classList.remove('active');
+            teamPageModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && teamPageModal && teamPageModal.classList.contains('active')) {
+            teamPageModal.classList.remove('active');
+            teamPageModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    });
+
+    /* ======================================================================
+       18. Our Team Tab Filter Bar Handlers
+       ====================================================================== */
+    const teamFilterBtns = document.querySelectorAll('.team-filter-btn');
+    const teamCategoryBlocks = document.querySelectorAll('.team-category-block');
+
+    teamFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filterTarget = btn.getAttribute('data-filter');
+
+            teamFilterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            teamCategoryBlocks.forEach(block => {
+                const category = block.getAttribute('data-category');
+                if (filterTarget === 'all' || filterTarget === category) {
+                    block.style.display = 'block';
+                    block.style.animation = 'none';
+                    // Trigger reflow to restart animation
+                    void block.offsetWidth;
+                    block.style.animation = 'tabFadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+                } else {
+                    block.style.display = 'none';
+                }
+            });
+        });
+    });
 
 });
