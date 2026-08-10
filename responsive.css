@@ -569,23 +569,60 @@
     .team-page-title {
         font-size: 2.1rem;
     }
+
     .team-navbar-subtitle {
         display: none;
     }
+
     .btn-back-home span {
         display: none;
     }
+
     .btn-back-home {
         padding: 8px 14px;
     }
+
     .btn-our-team {
         padding: 14px 28px;
         font-size: 0.95rem;
     }
+
     .team-member-card {
         padding: 28px 20px;
     }
+
     .category-title {
         font-size: 1.4rem;
     }
 }
+
+/* ==========================================================================
+   Founder ID Card Responsive Rules (Mobile & Tablet)
+   ========================================================================== */
+@media (max-width: 576px) {
+    .founder-badge-wrapper {
+        max-width: 100%;
+        padding-top: 30px;
+    }
+    
+    .founder-id-card {
+        height: 480px;
+    }
+    
+    .id-card-name {
+        font-size: 24px;
+    }
+    
+    .id-card-role {
+        font-size: 12px;
+    }
+    
+    .id-card-bottom-bar {
+        padding: 18px;
+    }
+    
+    .id-card-top-logo {
+        width: 40px;
+        height: 40px;
+    }
+}

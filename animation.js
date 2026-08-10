@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mouseX = e.clientX;
             mouseY = e.clientY;
             glow.style.left = mouseX + 'px';
-            glow.style.top  = mouseY + 'px';
+            glow.style.top = mouseY + 'px';
         });
 
         // Smooth ring follow
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ringX += (mouseX - ringX) * 0.12;
             ringY += (mouseY - ringY) * 0.12;
             ring.style.left = ringX + 'px';
-            ring.style.top  = ringY + 'px';
+            ring.style.top = ringY + 'px';
             requestAnimationFrame(animateRing);
         };
         animateRing();
@@ -126,17 +126,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tiltCards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
-                const rect  = card.getBoundingClientRect();
-                const cx    = rect.width  / 2;
-                const cy    = rect.height / 2;
-                const ox    = (e.clientX - rect.left - cx) / cx;
-                const oy    = (e.clientY - rect.top  - cy) / cy;
-                const maxR  = 6;
-                const rx    = -oy * maxR;
-                const ry    =  ox * maxR;
+                const rect = card.getBoundingClientRect();
+                const cx = rect.width / 2;
+                const cy = rect.height / 2;
+                const ox = (e.clientX - rect.left - cx) / cx;
+                const oy = (e.clientY - rect.top - cy) / cy;
+                const maxR = 6;
+                const rx = -oy * maxR;
+                const ry = ox * maxR;
 
                 card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
-                card.style.boxShadow = `${-ox*16}px ${-oy*16}px 36px rgba(139,92,246,0.14), 0 10px 30px rgba(0,0,0,0.45)`;
+                card.style.boxShadow = `${-ox * 16}px ${-oy * 16}px 36px rgba(139,92,246,0.14), 0 10px 30px rgba(0,0,0,0.45)`;
                 card.style.backgroundImage = `radial-gradient(circle at ${e.clientX - rect.left}px ${e.clientY - rect.top}px, rgba(255,255,255,0.06) 0%, transparent 65%), linear-gradient(135deg,rgba(255,255,255,0.03) 0%,rgba(255,255,255,0.01) 100%)`;
             });
 
@@ -157,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
         magnetBtns.forEach(btn => {
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
-                const dx   = e.clientX - (rect.left + rect.width / 2);
-                const dy   = e.clientY - (rect.top  + rect.height / 2);
+                const dx = e.clientX - (rect.left + rect.width / 2);
+                const dy = e.clientY - (rect.top + rect.height / 2);
                 btn.style.transform = `translate(${dx * 0.22}px, ${dy * 0.22}px) scale(1.04)`;
             });
 
@@ -208,17 +208,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const counterEls = document.querySelectorAll('.counter-value');
 
     const startCounter = (el) => {
-        const target   = parseInt(el.getAttribute('data-target'), 10);
-        const suffix   = el.getAttribute('data-suffix') || '';
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        const suffix = el.getAttribute('data-suffix') || '';
         const duration = 1800;
-        const fps      = 1000 / 60;
-        const frames   = Math.round(duration / fps);
+        const fps = 1000 / 60;
+        const frames = Math.round(duration / fps);
         let f = 0;
 
         const tick = () => {
             f++;
             const progress = f / frames;
-            const eased    = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+            const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
             el.textContent = Math.floor(target * eased).toLocaleString() + suffix;
             if (f < frames) requestAnimationFrame(tick);
             else el.textContent = target.toLocaleString() + suffix;
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const ripple = document.createElement('span');
             ripple.classList.add('btn-ripple');
             ripple.style.left = (e.clientX - rect.left) + 'px';
-            ripple.style.top  = (e.clientY - rect.top)  + 'px';
+            ripple.style.top = (e.clientY - rect.top) + 'px';
             this.appendChild(ripple);
             setTimeout(() => ripple.remove(), 700);
         });
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ======================================================================
        9. Navbar Shrink & Scroll-Spy
        ====================================================================== */
-    const navbar   = document.querySelector('.navbar-custom');
+    const navbar = document.querySelector('.navbar-custom');
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.navbar-custom .nav-link');
 
@@ -280,8 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close mobile menu on link click, outside click, or Escape key
     const collapseEl = document.querySelector('.navbar-collapse');
-    const toggler    = document.querySelector('.navbar-toggler-custom');
-    
+    const toggler = document.querySelector('.navbar-toggler-custom');
+
     if (collapseEl && toggler) {
         navLinks.forEach(a => {
             a.addEventListener('click', () => {
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
        11. Typing Effect (Hero)
        ====================================================================== */
     const typingEl = document.getElementById('typing-text');
-    const phrases  = ['Learn.', 'Teach.', 'Grow Together.'];
+    const phrases = ['Learn.', 'Teach.', 'Grow Together.'];
     let pIdx = 0, cIdx = 0, deleting = false, speed = 120;
 
     const type = () => {
